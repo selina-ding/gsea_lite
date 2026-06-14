@@ -1,0 +1,37 @@
+[build-system]
+# 指定打包工具为 setuptools
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+# 项目基础信息
+name = "gsea-lite"
+version = "0.1.0"
+description = "简化的基因集富集分析(GSEA)与过表达分析(ORA)工具"
+readme = "README.md"
+requires-python = ">=3.8"
+
+authors = [
+    { name = "丁奕新;夏奕琳婷;于润湉", email = "13791151682@163.com" },
+]
+
+# 核心依赖：运行这个包必须安装的第三方库
+dependencies = [
+    "numpy",
+    "pandas",
+    "scipy",
+    "matplotlib",
+    "seaborn"
+]
+
+[project.optional-dependencies]
+# 可选依赖：用于开发和测试的环境（可以通过 pip install -e .[dev] 一键安装）
+dev = [
+    "pytest",
+    "jupyter"
+]
+
+# 定义命令行入口 (CLI)
+[project.scripts]
+# 格式为："终端命令 = 包名.模块名:函数名"
+gsea-lite = "gsea_lite.cli:main"

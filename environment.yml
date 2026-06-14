@@ -1,0 +1,16 @@
+name: bio2503
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python>=3.8
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  - seaborn
+  - pytest
+  - jupyter
+  - pip
+  - pip:
+      - -e .

@@ -1,0 +1,16 @@
+item,value
+package,gsea-lite 0.1.0
+python,3.12.12
+geo_input,/home/sherryxia/bio2503/gsea_lite/examples/example_data/GSE42568.top.table.tsv
+gmt_input,/home/sherryxia/bio2503/gsea_lite/examples/example_data/h.all.v2026.1.Hs.symbols.gmt
+ora_gene_p_column_used_by_package,P.Value
+ora_gene_p_threshold,0.05
+ora_lfc_threshold,1.0
+selected_genes_package_rule,4669
+ora_pathways_tested,50
+ora_fdr_lt_0.05,42
+ora_table,/home/sherryxia/bio2503/gsea_lite/results/notebook_gsea_lite/ora_results_fdr.csv
+gsea_table,/home/sherryxia/bio2503/gsea_lite/results/notebook_gsea_lite/gsea_results.csv
+ora_barplot,/home/sherryxia/bio2503/gsea_lite/results/notebook_gsea_lite/ora_barplot.png
+ora_dotplot,/home/sherryxia/bio2503/gsea_lite/results/notebook_gsea_lite/ora_dotplot.png
+gsea_barplot,/home/sherryxia/bio2503/gsea_lite/results/notebook_gsea_lite/gsea_es_barplot.png
