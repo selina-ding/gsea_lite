@@ -1,6 +1,6 @@
 """
 FDR-based p-value adjuster.
-https://github.com/dceoy/fdra
+https://github.com/dceoy/fdra11
 """
 
 import numpy as np
