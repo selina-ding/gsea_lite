@@ -1,2 +1,0 @@
-[console_scripts]
-gsea-lite = gsea_lite.cli:main

@@ -1,9 +1,0 @@
-numpy
-pandas
-scipy
-matplotlib
-seaborn
-
-[dev]
-pytest
-jupyter
