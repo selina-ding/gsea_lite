@@ -14,8 +14,7 @@ def bh_fdr_correction(pvalue):
 
     Parameters
     ----------
-    pvalue : array-like
-        DEG结果表中的 pvalue 列
+    pvalue 
 
     Returns
     -------
@@ -28,30 +27,23 @@ def bh_fdr_correction(pvalue):
     if np.any((pvalue < 0) | (pvalue > 1)):
         raise ValueError("Invalid p-values")
 
-    # 总检验数
+    # Total number of statistical tests
     m = len(pvalue)
 
-    # 按 pvalue 从小到大排序
-    # np.argsort():返回排好序的元素在原数组中的索引（位置编号）
-    sorted_index = np.argsort(pvalue) #返回排好序的元素在原数组pvalue中的位置编号
+    # sorting pvalue in ascending order
+    sorted_index = np.argsort(pvalue) # Return the position number of the sorted element in the original array
     sorted_pvalue = pvalue[sorted_index]
 
-    # BH校正
+    # Benjamini–Hochberg correction
     qvalue_sorted = sorted_pvalue * m / np.arange(1, m + 1)
 
-    # 保证FDR单调递增
-    # 一个基因的qvalue不能大于排在它后面的任何一个基因的qvalue。如果大于了，就得降到和后面一样低
-    # np.minimum.accumulate()：沿给定轴计算元素的累积最小值，返回一个数组，其中每个位置包含到目前为止遇到的最小值。
-    qvalue_sorted = np.minimum.accumulate(
-        qvalue_sorted[::-1] #先反转，pvalue变成从大到小排
-    )[::-1] #最后再反转回从小到大
+    qvalue_sorted = np.minimum.accumulate(qvalue_sorted[::-1])[::-1]
 
-    # 限制在[0,1]
-    # np.clip(): 强制将所有算出来的qvalue限制在0到1的范围内。如果数组里有大于1的数，强制变成1。
+    # Restrict all q-values to the interval [0, 1]
     qvalue_sorted = np.clip(qvalue_sorted, 0, 1)
 
-    # 恢复原顺序
+    # Restore the q-values to the original p-value order
     qvalue = np.empty(m)
-    qvalue[sorted_index] = qvalue_sorted #qvalue_sorted是从小到大排好序的，sorted_index是原pvalue的索引
+    qvalue[sorted_index] = qvalue_sorted
 
     return qvalue
