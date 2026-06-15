@@ -1,0 +1,45 @@
+site_name: gsea-lite 🧬
+site_description: 简化的基因集富集分析(GSEA)与过表达分析(ORA)工具
+site_author: 丁奕新, 夏奕琳婷, 于润湉
+
+# 使用目前最流行的 Material 主题
+theme:
+  name: material
+  language: zh          # 切换为中文界面
+  palette:
+    # 浅色模式配置
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal     # 主题色（生信常用的青色）
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: 切换到暗黑模式
+    # 暗色模式配置
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: 切换到亮色模式
+  features:
+    - navigation.tabs   # 顶部导航条样式
+    - search.suggest    # 搜索建议
+    - search.highlight  # 搜索词高亮
+
+# 导航栏结构配置（对应你们的实际文件）
+nav:
+  - 简介: index.md
+  - 使用教程: tutorial.md
+
+# 开启 Markdown 扩展增强（支持代码高亮、表格、高级提示框等）
+markdown_extensions:
+  - tables
+  - admonition          # 🌟 替换成这个：支持精美的提示框 (Note/Warning/Danger等)
+  - pymdownx.details    # 🌟 加上这个：支持可以点击展开/折叠的提示框
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
