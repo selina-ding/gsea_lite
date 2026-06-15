@@ -1,0 +1,10 @@
+# 忽略 Python 编译文件和缓存
+__pycache__/
+*.py[cod]
+
+# 忽略 pip install -e 生成的包信息
+*.egg-info/
+src/*.egg-info/
+
+# 忽略 Mac 系统的隐藏缓存文件
+.DS_Store
